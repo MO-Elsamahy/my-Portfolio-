@@ -284,7 +284,7 @@
             height: 120px;
             object-fit: contain;
             margin-bottom: 1.5rem;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
 
         .activity-card:hover .activity-logo {
@@ -311,6 +311,19 @@
         .activity-description {
             color: var(--text-color);
             line-height: 1.6;
+        }
+
+        .activity-card a {
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-card a:hover {
+            transform: scale(1.1);
+        }
+
+        .activity-card a:hover .activity-logo {
+            filter: brightness(1.1);
         }
 
         /* Publications Section */
@@ -568,7 +581,9 @@
         </div>
         <div class="career-grid">
             <div class="career-card">
-                <img src="images/Emamlogo.png" alt="Emam Organization Logo" class="company-logo">
+                <a href="https://www.emamngo.com/" target="_blank">
+                    <img src="images/Emamlogo.png" alt="Emam Organization Logo" class="activity-logo">
+                </a>
                 <h3 class="career-title">EMAM Organization for Development and Culture</h3>
                 <div class="career-position">Executive Director- Cairo Branch</div>
                 <div class="career-date">2024 - Present</div>
@@ -600,7 +615,9 @@
         </div>
         <div class="activities-grid">
             <div class="activity-card">
-                <img src="images/Emamlogo.png" alt="Emam Organization Logo" class="activity-logo">
+                <a href="https://www.emamngo.com/" target="_blank">
+                    <img src="images/Emamlogo.png" alt="Emam Organization Logo" class="activity-logo">
+                </a>
                 <h3 class="activity-title">EMAM Organization for Development and Culture</h3>
                 <div class="activity-role">Volunteer</div>
                 <div class="activity-date">2014 - 2024</div>
@@ -608,14 +625,18 @@
                 <p class="activity-description">○ Climate Project Manager(2024-Present)</p>
             </div>
             <div class="activity-card">
-                <img src="images/UNFCCC.png" alt="UNFCCC Logo" class="activity-logo">
+                <a href="https://unfccc.int/process/parties-non-party-stakeholders/non-party-stakeholders/admitted-ngos/list-of-admitted-ngos" target="_blank">
+                    <img src="images/UNFCCC.png" alt="UNFCCC Logo" class="activity-logo">
+                </a>
                 <h3 class="activity-title">UNFCCC</h3>
                 <div class="activity-role">Contact Person</div>
                 <div class="activity-date">2024 - Present</div>
-                <p class="activity-description">Contact Person for Emam Organization With UNFCCC</p>
+                <p class="activity-description">Contact Person for Emam Organization for Development and Culture With UNFCCC</p>
             </div>
             <div class="activity-card">
-                <img src="images/MBHC.png" alt="MBHC Logo" class="activity-logo">
+                <a href="#" target="_blank">
+                    <img src="images/MBHC.png" alt="MBHC Logo" class="activity-logo">
+                </a>
                 <h3 class="activity-title">Model of British House of Commons</h3>
                 <div class="activity-role">Vice President</div>
                 <div class="activity-date">2023 - Present</div>
@@ -623,7 +644,9 @@
                 <p class="activity-description">○ Served as HR Instructor (2022-2023)</p>
             </div>
             <div class="activity-card">
-                <img src="images/MIOM.png" alt="MIOM Logo" class="activity-logo">
+                <a href="#" target="_blank">
+                    <img src="images/MIOM.png" alt="MIOM Logo" class="activity-logo">
+                </a>
                 <h3 class="activity-title">Simulation Model of International Organization for Migration</h3>
                 <div class="activity-role">Vice HR Head</div>
                 <div class="activity-date">2023-2024</div>
