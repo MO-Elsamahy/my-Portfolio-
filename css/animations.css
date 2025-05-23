@@ -1,0 +1,405 @@
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Apply animations */
+.animate-text {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-text-delay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.hero .btn {
+    animation: scaleIn 0.5s ease-out 0.6s backwards;
+}
+
+.about-content,
+.projects,
+.skills-grid,
+.contact-content {
+    animation: slideIn 1s ease-out;
+}
+
+/* Hover animations */
+.skill-category {
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading animation */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile menu animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    animation: slideDown 0.3s ease-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Typing Effect */
+.typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--primary-color);
+    min-width: 300px; /* Ensure enough space for the text */
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
+}
+
+.typing-effect-css {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--primary-color);
+    font-family: inherit;
+    font-size: inherit;
+    width: 0;
+    animation:
+        typing-css 2s steps(13, end) forwards,
+        blink-caret-css 0.75s step-end infinite;
+}
+
+@keyframes typing-css {
+    from { width: 0; }
+    to { width: 13ch; } 
+}
+
+@keyframes blink-caret-css {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-color); }
+}
+
+.typing-effect-cycle {
+    display: block;
+    margin: 0 auto;
+    min-width: 20ch;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 1.2em;
+    vertical-align: bottom;
+}
+
+.typing-effect-cycle::after {
+    content: "Web Developer";
+    animation:
+        typing-roles 18s steps(20, end) infinite,
+        blink-caret-cycle 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    border-right: 2px solid var(--primary-color);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+@keyframes typing-roles {
+    /* Web Developer */
+    0%   { content: "Web Developer"; width: 0; opacity: 1; }
+    4%   { content: "Web Developer"; width: 13ch; opacity: 1; }
+    10%  { content: "Web Developer"; width: 13ch; opacity: 1; }
+    12%  { content: "Web Developer"; width: 0; opacity: 0; }
+
+    /* Creative Designer */
+    13%  { content: "Creative Designer"; width: 0; opacity: 1; }
+    17%  { content: "Creative Designer"; width: 18ch; opacity: 1; }
+    23%  { content: "Creative Designer"; width: 18ch; opacity: 1; }
+    25%  { content: "Creative Designer"; width: 0; opacity: 0; }
+
+    /* TOT Trainer */
+    26%  { content: "TOT Trainer"; width: 0; opacity: 1; }
+    30%  { content: "TOT Trainer"; width: 11ch; opacity: 1; }
+    36%  { content: "TOT Trainer"; width: 11ch; opacity: 1; }
+    38%  { content: "TOT Trainer"; width: 0; opacity: 0; }
+
+    /* Graphic Drsigner */
+    39%  { content: "Graphic Drsigner"; width: 0; opacity: 1; }
+    43%  { content: "Graphic Drsigner"; width: 17ch; opacity: 1; }
+    49%  { content: "Graphic Drsigner"; width: 17ch; opacity: 1; }
+    51%  { content: "Graphic Drsigner"; width: 0; opacity: 0; }
+
+    /* AI Devolober */
+    52%  { content: "AI Devolober"; width: 0; opacity: 1; }
+    56%  { content: "AI Devolober"; width: 13ch; opacity: 1; }
+    62%  { content: "AI Devolober"; width: 13ch; opacity: 1; }
+    64%  { content: "AI Devolober"; width: 0; opacity: 0; }
+
+    /* Executive Director */
+    65%  { content: "Executive Director"; width: 0; opacity: 1; }
+    70%  { content: "Executive Director"; width: 19ch; opacity: 1; }
+    78%  { content: "Executive Director"; width: 19ch; opacity: 1; }
+    80%  { content: "Executive Director"; width: 0; opacity: 0; }
+
+    /* Pause before restart */
+    100% { content: ""; width: 0; opacity: 0; }
+}
+
+@keyframes blink-caret-cycle {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-color); }
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.typing-effect-js {
+    display: inline-block;
+    min-width: 20ch;
+    border-right: 2px solid var(--primary-color);
+    font-family: inherit;
+    font-size: inherit;
+    white-space: nowrap;
+    text-align: center;
+    margin: 0 auto;
+    animation: blink-caret-js 0.75s step-end infinite;
+}
+
+@keyframes blink-caret-js {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-color); }
+}
+
+#title-carousel {
+    display: inline-block;
+    min-width: 20ch;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color, #6cb6ff);
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+#title-carousel.visible {
+    opacity: 1;
+}
+
+.tool-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color, #6cb6ff);
+    display: block;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.skill-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color, #6cb6ff);
+    display: block;
+}
+
+.skill-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color, #fff);
+    font-weight: bold;
+}
+
+/* Google Calendar Appointment Button Custom Style */
+.gc-appointment-scheduling-button {
+  background: var(--primary-color, #2196f3) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 2rem !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  padding: 1rem 2.5rem !important;
+  margin: 2rem 0 0 0 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: inline-block;
+}
+.gc-appointment-scheduling-button:hover {
+  background: var(--secondary-color, #1976d2) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.map-frame {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 80px;
+  margin-top: 1.5rem;
+}
+
+.reformatted-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.appointment-btn-wrapper {
+  min-width: 260px;
+  display: flex;
+  align-items: flex-start;
+  margin-right: 2rem;
+}
+
+.map-overlay {
+  background: var(--card-bg, #232b36);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px var(--shadow-color, rgba(0,0,0,0.2));
+  min-width: 350px;
+  max-width: 600px;
+  flex: 1 1 350px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .reformatted-contact {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .appointment-btn-wrapper, .map-overlay {
+    margin-right: 0;
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+.contact-card {
+  background: var(--card-bg, #232b36);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px var(--shadow-color, rgba(0,0,0,0.2));
+  min-width: 320px;
+  max-width: 500px;
+  flex: 1 1 320px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+} 

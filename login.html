@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Portfolio Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBAlWF3ILTRNhwfNdUBvEHaPcFH1w1XUtU",
+      authDomain: "my-portfolio-admin-2329f.firebaseapp.com",
+      projectId: "my-portfolio-admin-2329f",
+      storageBucket: "my-portfolio-admin-2329f.appspot.com",
+      messagingSenderId: "863943504176",
+      appId: "1:863943504176:web:090c224a3e7cf68fb558f5",
+      measurementId: "G-5T8PNCY2CF"
+    };
+    // Initialize Firebase if not already initialized
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+  </script>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      margin: 0;
+      padding: 2rem;
+    }
+    .login-container {
+      max-width: 400px;
+      width: 100%;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px var(--shadow-color);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      animation: fadeIn 1s cubic-bezier(.4,2,.6,1);
+      position: relative;
+    }
+    .login-container h2 {
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      font-size: 2rem;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 1.2rem;
+    }
+    .form-group i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-color);
+      opacity: 0.5;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 1rem 1rem 1rem 3rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      font-size: 1rem;
+      background: var(--section-bg);
+      color: var(--text-color);
+      transition: var(--transition);
+    }
+    .login-container input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.1);
+    }
+    .login-container button {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--primary-color);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .login-container button:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+    .back-to-site {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 0.8rem 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+    .back-to-site:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    .back-to-site i {
+      font-size: 1.1rem;
+    }
+    #login-error {
+      color: #dc3545;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      padding: 0.8rem;
+      background: rgba(220, 53, 69, 0.1);
+      border-radius: 8px;
+      display: none;
+    }
+    #login-error.show {
+      display: block;
+      animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    }
+    .loading {
+      position: relative;
+      pointer-events: none;
+    }
+    .loading::after {
+      content: '';
+      position: absolute;
+      width: 1.5rem;
+      height: 1.5rem;
+      top: 50%;
+      left: 50%;
+      margin: -0.75rem 0 0 -0.75rem;
+      border: 2px solid #fff;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translate3d(-1px, 0, 0); }
+      20%, 80% { transform: translate3d(2px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+      40%, 60% { transform: translate3d(4px, 0, 0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .password-toggle {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-color);
+      opacity: 0.5;
+      cursor: pointer;
+      padding: 0;
+      font-size: 1.1rem;
+    }
+    .password-toggle:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <button class="back-to-site" onclick="window.location.href='index.html'">
+    <i class="fas fa-arrow-left"></i>
+    Back to Website
+  </button>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="email" placeholder="Email" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" required autocomplete="current-password">
+        <button type="button" class="password-toggle" onclick="togglePassword()">
+          <i class="fas fa-eye"></i>
+        </button>
+      </div>
+      <button type="submit" id="login-button">Login</button>
+      <div id="login-error"></div>
+    </form>
+  </div>
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const loginButton = document.getElementById('login-button');
+    const loginError = document.getElementById('login-error');
+    const passwordInput = document.getElementById('password');
+    const passwordToggle = document.querySelector('.password-toggle');
+
+    // Set persistence to LOCAL to maintain session
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .catch((error) => {
+        console.error('Error setting persistence:', error);
+      });
+
+    // Check if user is already logged in
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // If already logged in, redirect to home page
+        window.location.href = 'index.html';
+      }
+    });
+
+    // Toggle password visibility
+    function togglePassword() {
+      const type = passwordInput.type === 'password' ? 'text' : 'password';
+      passwordInput.type = type;
+      passwordToggle.innerHTML = `<i class="fas fa-eye${type === 'password' ? '' : '-slash'}"></i>`;
+    }
+
+    // Show error message with animation
+    function showError(message) {
+      loginError.textContent = message;
+      loginError.classList.add('show');
+      setTimeout(() => loginError.classList.remove('show'), 5000);
+    }
+
+    loginForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const email = loginForm.email.value.trim();
+      const password = loginForm.password.value;
+      
+      // Basic validation
+      if (!email || !password) {
+        showError('Please fill in all fields');
+        return;
+      }
+
+      // Show loading state
+      loginButton.classList.add('loading');
+      loginButton.disabled = true;
+      loginError.classList.remove('show');
+      
+      try {
+        // Sign in with email and password
+        const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+        
+        // Store authentication state
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('userEmail', email);
+        
+        // Redirect to home page
+        window.location.href = 'index.html';
+      } catch (error) {
+        // Handle errors with more detailed messages
+        console.error('Login error:', error);
+        let errorMessage = 'Login failed. ';
+        
+        switch (error.code) {
+          case 'auth/user-not-found':
+            errorMessage += 'No account found with this email.';
+            break;
+          case 'auth/wrong-password':
+            errorMessage += 'Incorrect password.';
+            break;
+          case 'auth/invalid-email':
+            errorMessage += 'Invalid email format.';
+            break;
+          case 'auth/too-many-requests':
+            errorMessage += 'Too many failed attempts. Please try again later.';
+            break;
+          case 'auth/network-request-failed':
+            errorMessage += 'Network error. Please check your connection.';
+            break;
+          default:
+            errorMessage += error.message;
+        }
+        
+        showError(errorMessage);
+      } finally {
+        // Remove loading state
+        loginButton.classList.remove('loading');
+        loginButton.disabled = false;
+      }
+    });
+
+    // Prevent form submission on Enter key
+    loginForm.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && loginButton.disabled) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/interactive-bg.css">
+</head>
+<body>
+    <div class="interactive-bg" id="interactive-bg"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">Portfolio</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="login.html" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section class="page-hero contact-hero">
+        <div class="hero-content">
+            <h1 class="animate-text">Get In Touch</h1>
+            <p class="animate-text-delay">Let's turn your ideas into reality</p>
+        </div>
+        <div class="hero-background">
+            <div class="floating-shape shape1"></div>
+            <div class="floating-shape shape2"></div>
+            <div class="floating-shape shape3"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Contact Information -->
+            <div class="contact-info-card">
+                <div class="info-header">
+                    <h2>Let's Connect</h2>
+                    <p>Feel free to reach out through any of these channels</p>
+                </div>
+                <div class="info-items">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>Mohamed.amir2022@feps.edu.eg</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Phone</h3>
+                            <p>+20 111 987 0082</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Location</h3>
+                            <p>Cairo, Egypt</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links-container">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/MO-Elsamahy" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohamed-elsamahy-b788a2261/" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.facebook.com/M.ELSAMAHYY" class="social-link" title="facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <form action="https://formsubmit.co/Mohamed.amir2022@feps.edu.eg" method="POST" class="contact-form">
+                    <!-- Spam Protection -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_honey" value="">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://your-github-pages-url.com/thank-you.html">
+                    <input type="hidden" name="_autoresponse" value="Thank you for your message! I'll get back to you as soon as possible.">
+                    
+                    <div class="form-header">
+                        <h2>Send Message</h2>
+                        <p>I'll get back to you as soon as possible</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                            <span class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                            <span class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject</label>
+                            <span class="input-icon">
+                                <i class="fas fa-pencil-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Your Message</label>
+                            <span class="input-icon">
+                                <i class="fas fa-comment-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container reformatted-contact">
+            <div class="contact-card">
+                <div id="calendar-booking-btn"></div>
+                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                <script>
+                window.addEventListener('load', function() {
+                  calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0hLdRURJFJKyXg02fEbSI_yXvDFguSTicepvquw1Lsbjir_CmU7o9ZxAoG297dxghedcoRu-Wz?gv=true',
+                    color: '#039BE5',
+                    label: 'Book an appointment',
+                    target: document.getElementById('calendar-booking-btn'),
+                  });
+                });
+                </script>
+            </div>
+            <div class="contact-card">
+                <h3>Visit My Office</h3>
+                <p>4B Hussien hegazey St., Al Inshaa WA Al Munirah, El Sayeda Zeinab, Cairo Governorate</p>
+                <a href="https://maps.app.goo.gl/YjNUiCtyjM6aGidJ8" class="btn primary">Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://github.com/MO-Elsamahy" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/M.ELSAMAHYY" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mo_elsamahy1" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-elsamahy-b788a2261/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>© 2025 Mohamed Elsamahy  All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/interactive-bg.js"></script>
+</body>
+</html> 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Elsamahy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/interactive-bg.css">
+</head>
+<body>
+    <div class="interactive-bg" id="interactive-bg"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="diving-element"></div>
+            <div class="diving-element"></div>
+            <div class="diving-element"></div>
+            <div class="diving-element"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="animate-text">Welcome to My Portfolio</h1>
+            <p class="animate-text-delay">
+                <span id="title-carousel"></span>
+            </p>
+            <div class="cta-buttons">
+                <a href="projects.html" class="btn primary">View My Work</a>
+                <a href="contact.html" class="btn secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <div class="text-center">
+                <span>No projects added yet</span>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="projects.html" class="btn primary">View All Projects</a>
+        </div>
+    </section>
+
+    <!-- Skills Preview -->
+    <section class="skills-preview">
+        <h2>My Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-code skill-icon"></i>
+                <h4 class="skill-name">Programming</h4>
+                <p>Python, HTML, CSS, R, SQL</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-bar skill-icon"></i>
+                <h4 class="skill-name">Data Analysis</h4>
+                <p>Data mining, Excel, Power BI</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-paint-brush skill-icon"></i>
+                <h4 class="skill-name">Graphic Design</h4>
+                <p>Adobe Photoshop, Illustrator</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-tasks skill-icon"></i>
+                <h4 class="skill-name">Administrative</h4>
+                <p>Proposal writing, Project Management</p>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="skills.html" class="btn secondary">View All Skills</a>
+        </div>
+    </section>
+
+    <!-- Contact Preview -->
+    <section class="contact-preview">
+        <h2>Let's Work Together</h2>
+        <p>Have a project in mind? Let's discuss how I can help bring your ideas to life.</p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="btn primary">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://github.com/MO-Elsamahy" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/M.ELSAMAHYY" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mo_elsamahy1" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-elsamahy-b788a2261/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>© 2025 Mohamed Elsamahy  All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/interactive-bg.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</body>
+</html> 

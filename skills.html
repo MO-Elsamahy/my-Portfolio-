@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/interactive-bg.css">
+    <style>
+        /* Skills Page Styles */
+        .skills-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .skills-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #e0e7ef 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        /* Skills Sections */
+        .skills-section {
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Technical Skills Section */
+        .technical-skills {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-title i {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .skill-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .skill-level {
+            height: 6px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        /* Soft Skills Section */
+        .soft-skills {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .soft-skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .soft-skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .soft-skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .soft-skill-card:hover::before {
+            opacity: 0.1;
+        }
+
+        /* Tools & Technologies Section */
+        .tools-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .tool-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tool-info {
+            flex: 1;
+        }
+
+        .tool-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .tool-description {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* Certifications Section */
+        .certifications-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .certification-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .certification-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .certification-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .certification-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .certification-title {
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .certification-issuer {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-date {
+            font-size: 0.8rem;
+            color: var(--text-color);
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .skill-card, .soft-skill-card, .tool-card, .certification-card {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .skill-card:nth-child(1) { animation-delay: 0s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.4s; }
+        .skill-card:nth-child(4) { animation-delay: 0.6s; }
+        .skill-card:nth-child(5) { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <div class="interactive-bg" id="interactive-bg"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">Portfolio</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html" class="active">Skills</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="login-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Skills Hero Section -->
+    <section class="skills-hero">
+        <div class="hero-content">
+            <h1>My Skills</h1>
+            <p>Explore my technical expertise, soft skills, and professional certifications that drive my success in the digital world.</p>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section class="skills-section">
+        <div class="section-header">
+            <h2>Technical Skills</h2>
+            <p>My core technical competencies and programming expertise</p>
+        </div>
+        <div class="technical-skills">
+            <div class="skills-grid" id="skills-grid">
+                <!-- Dynamic skills will be loaded here -->
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h4 class="skill-name">Programming</h4>
+                    <p>Python, HTML, CSS, R, SQL</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chart-bar skill-icon"></i>
+                    <h4 class="skill-name">Data Analysis</h4>
+                    <p>Data mining, Excel, Power BI</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-paint-brush skill-icon"></i>
+                    <h4 class="skill-name">Graphic Design</h4>
+                    <p>Adobe Photoshop, Illustrator</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-tasks skill-icon"></i>
+                    <h4 class="skill-name">Administrative</h4>
+                    <p>Proposal writing, Project Management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills Section -->
+    <section class="skills-section">
+        <div class="section-header">
+            <h2>Soft Skills</h2>
+            <p>My interpersonal and professional abilities</p>
+        </div>
+        <div class="soft-skills">
+            <div class="skills-grid">
+                <div class="soft-skill-card">
+                    <i class="fas fa-project-diagram skill-icon"></i>
+                    <h4 class="skill-name">Project Management Software</h4>
+                    <p>Proficient with project management software</p>
+                </div>
+                <div class="soft-skill-card">
+                    <i class="fas fa-users skill-icon"></i>
+                    <h4 class="skill-name">Team Player</h4>
+                    <p>Team player</p>
+                </div>
+                <div class="soft-skill-card">
+                    <i class="fas fa-clock skill-icon"></i>
+                    <h4 class="skill-name">Time Management</h4>
+                    <p>Excellent time management skills</p>
+                </div>
+                <div class="soft-skill-card">
+                    <i class="fas fa-microphone skill-icon"></i>
+                    <h4 class="skill-name">Public Speaking</h4>
+                    <p>Public speaking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Technologies Section -->
+    <section class="skills-section">
+        <div class="section-header">
+            <h2>Tools & Technologies</h2>
+            <p>My technical toolkit and development environment</p>
+        </div>
+        <div class="tools-section">
+            <div class="skills-grid">
+                <div class="tool-card">
+                    <i class="fab fa-git-alt tool-icon" title="Git"></i>
+                    <div class="tool-info">
+                        <h4 class="tool-name">Git</h4>
+                        <p class="tool-description">Version control and collaboration</p>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-database tool-icon" title="SQL/NoSQL"></i>
+                    <div class="tool-info">
+                        <h4 class="tool-name">SQL/NoSQL</h4>
+                        <p class="tool-description">Database management systems</p>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-file-alt tool-icon" title="Office Tools"></i>
+                    <div class="tool-info">
+                        <h4 class="tool-name">Office Tools</h4>
+                        <p class="tool-description">Excel, Word, PowerPoint, Access</p>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <i class="fab fa-linux tool-icon" title="Linux"></i>
+                    <div class="tool-info">
+                        <h4 class="tool-name">Operating Systems</h4>
+                        <p class="tool-description">Linux (Kali, Arch)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="skills-section">
+        <div class="section-header">
+            <h2>Certifications</h2>
+            <p>My professional certifications and achievements</p>
+        </div>
+        <div class="certifications-section">
+            <div class="skills-grid">
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="images/NIGSD.png" alt="NIGSD Logo" class="certification-icon" style="width: 10rem; height: 10rem; object-fit: contain; border-radius: 6px; margin-right: 1rem;" />
+                        <div>
+                            <h4 class="certification-title">TOT Trainer</h4>
+                            <p class="certification-issuer">National Institute for Governance and Sustainable Development</p>
+                            <p class="certification-date">Issued: 2023</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.facebook.com/M.ELSAMAHYY" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/mohamed-elsamahy-b788a2261/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/interactive-bg.js"></script>
+</body>
+</html> 
